@@ -337,7 +337,7 @@
       playJump() {
         if (this.isMuted) return;
         this.initCtx();
-        if (this.audioJump && this.audioJump.readyState >= 2) {
+        if (this.audioJump) {
           this.audioJump.currentTime = 0;
           this.audioJump.play().catch(() => this.synthJump());
         } else {
@@ -346,9 +346,9 @@
       }
 
       playGameOverAudio() {
-        if (this.isMuted) return;
         this.stopBGM();
-        if (this.audioChase && this.audioChase.readyState >= 2) {
+        if (this.isMuted) return;
+        if (this.audioChase) {
           this.audioChase.currentTime = 0;
           this.audioChase.play().catch(() => this.playCrash());
         } else {
